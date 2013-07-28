@@ -1,2 +1,0 @@
-void gettitle(unsigned char *);
-
