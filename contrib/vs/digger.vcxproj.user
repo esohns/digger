@@ -4,4 +4,8 @@
     <LocalDebuggerEnvironment>PATH=$(PATH);C:\Temp\SDL-1.2.15\lib\x86;C:\Temp\zlib128-dll</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerEnvironment>PATH=$(PATH);C:\Temp\SDL-1.2.15\lib\x86;C:\Temp\zlib128-dll</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

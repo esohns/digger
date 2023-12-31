@@ -64,7 +64,7 @@ fill_audio(void* udata, Uint8* stream, int len)
 	for(i = 0; i<len; i++)
 		buf[i] = getsample();
 
-	SDL_MixAudio(stream, buf, len, SDL_MIX_MAXVOLUME);
+	SDL_MixAudio(stream, buf, len, SDL_MIX_MAXVOLUME / 16);
 }
 
 void
