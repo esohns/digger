@@ -176,7 +176,7 @@ soundlevdone(void)
 		soundlevdoneflag=FALSE;
 #endif
 #if defined USE_SDL
-    SDL_Delay(10);	/* Let some CPU time go away */
+    //SDL_Delay(1);	/* Let some CPU time go away */
 #endif
 #ifdef ARM
     gretrace();
