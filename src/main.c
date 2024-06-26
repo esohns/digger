@@ -777,7 +777,7 @@ parsecmd(int argc, char** argv)
       }
     }
     else {
-      i=strlen(word);
+      i=(Sint4)strlen(word);
       if (i<1)
         continue;
       sf=TRUE;

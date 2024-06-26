@@ -70,6 +70,7 @@ if (WIN32)
                              $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>)
 endif (WIN32)
 
+add_definitions (-D_CRT_SECURE_NO_WARNINGS)
 add_definitions (-DUSE_SDL)
 
 ############## next target ################

@@ -198,7 +198,7 @@ void mprintf(char *f,...)
   int i,l;
   va_start(ap,f);
   vsprintf(buf,f,ap);
-  l=strlen(buf);
+  l=(int)strlen(buf);
   for (i=0;i<l;i++)
     recb[recp+i]=buf[i];
   recp+=l;

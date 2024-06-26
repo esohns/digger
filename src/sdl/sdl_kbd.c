@@ -56,7 +56,7 @@ void initkeyb(void)
 	SDL_EventState(SDL_MOUSEBUTTONDOWN, SDL_IGNORE);
 	SDL_EventState(SDL_MOUSEBUTTONUP, SDL_IGNORE);
 	
-	SDL_SetEventFilter(Handler, NULL);
+	SDL_SetEventFilter(Handler);
 }
 
 void restorekeyb(void)

@@ -406,7 +406,7 @@ void drawlives(void)
     n=getlives(1)-1;
     if (n>4) {
       sprintf(buf,"%iX",n);
-      outtext(buf,220-strlen(buf)*12,0,2);
+      outtext(buf,220-(Sint4)strlen(buf)*12,0,2);
       drawlife(1,224,0);
     }
     else
@@ -420,7 +420,7 @@ void drawlives(void)
     n=getlives(1)-1;
     if (n>4) {
       sprintf(buf,"%iX",n);
-      outtext(buf,220-strlen(buf)*12,0,1);
+      outtext(buf,220-(Sint4)strlen(buf)*12,0,1);
       drawlife(3,224,0);
     }
     else
