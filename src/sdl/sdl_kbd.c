@@ -38,7 +38,7 @@ int Handler(const SDL_Event *event)
 	return(1);
 }
 
-bool GetAsyncKeyState(int key)
+bool _GetAsyncKeyState(int key)
 {
 	Uint8 *keys;
 	
@@ -56,7 +56,7 @@ void initkeyb(void)
 	SDL_EventState(SDL_MOUSEBUTTONDOWN, SDL_IGNORE);
 	SDL_EventState(SDL_MOUSEBUTTONUP, SDL_IGNORE);
 	
-	SDL_SetEventFilter(Handler);
+	SDL_SetEventFilter(Handler, NULL);
 }
 
 void restorekeyb(void)

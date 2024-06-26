@@ -3,7 +3,9 @@
 void soundinitglob(int port,int irq,int dma,Uint4 bufsize,Uint4 samprate);
 void s1setupsound(void);
 void s1killsound(void);
+#ifndef _WINDOWS
 void s1fillbuffer(void);
+#endif
 void s1settimer2(Uint4 t2);
 void s1soundoff(void);
 void s1setspkrt2(void);

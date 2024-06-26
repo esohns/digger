@@ -105,16 +105,16 @@ void findkey(int kn)
   krdf[kn]=TRUE;
 }
 #elif (defined _WIN32 || defined _WIN64) && !defined USE_SDL
-#define rightpressed  (GetAsyncKeyState(keycodes[0][0]) & 0x8000)
-#define uppressed     (GetAsyncKeyState(keycodes[1][0]) & 0x8000)
-#define leftpressed   (GetAsyncKeyState(keycodes[2][0]) & 0x8000)
-#define downpressed   (GetAsyncKeyState(keycodes[3][0]) & 0x8000)
-#define f1pressed     (GetAsyncKeyState(keycodes[4][0]))
-#define right2pressed (GetAsyncKeyState(keycodes[5][0]) & 0x8000)
-#define up2pressed    (GetAsyncKeyState(keycodes[6][0]) & 0x8000)
-#define left2pressed  (GetAsyncKeyState(keycodes[7][0]) & 0x8000)
-#define down2pressed  (GetAsyncKeyState(keycodes[8][0]) & 0x8000)
-#define f12pressed    (GetAsyncKeyState(keycodes[9][0]))
+#define rightpressed  (_GetAsyncKeyState(keycodes[0][0]) & 0x8000)
+#define uppressed     (_GetAsyncKeyState(keycodes[1][0]) & 0x8000)
+#define leftpressed   (_GetAsyncKeyState(keycodes[2][0]) & 0x8000)
+#define downpressed   (_GetAsyncKeyState(keycodes[3][0]) & 0x8000)
+#define f1pressed     (_GetAsyncKeyState(keycodes[4][0]))
+#define right2pressed (_GetAsyncKeyState(keycodes[5][0]) & 0x8000)
+#define up2pressed    (_GetAsyncKeyState(keycodes[6][0]) & 0x8000)
+#define left2pressed  (_GetAsyncKeyState(keycodes[7][0]) & 0x8000)
+#define down2pressed  (_GetAsyncKeyState(keycodes[8][0]) & 0x8000)
+#define f12pressed    (_GetAsyncKeyState(keycodes[9][0]))
 
 int keycodes[17][5]={{VK_RIGHT,VK_RIGHT+0x80,0x14d,-2,-2}, /* 1 Right */
                      {VK_UP,VK_UP+0x80,-2,-2},             /* 1 Up */
@@ -182,7 +182,7 @@ int keycodes[17][5]={{RIGHTKEY,-2,-2,-2,-2},		/* 1 Right */
 
 #define ASCIIF8 F8KEY
 #elif defined USE_SDL
-bool GetAsyncKeyState(int);
+bool _GetAsyncKeyState(int);
 
 int keycodes[17][5]={{SDLK_RIGHT,-2,-2,-2,-2},		/* 1 Right */
                      {SDLK_UP,-2,-2,-2,-2},		/* 1 Up */
@@ -204,16 +204,16 @@ int keycodes[17][5]={{SDLK_RIGHT,-2,-2,-2,-2},		/* 1 Right */
 
 #define ASCIIF8 SDLK_F8
 
-#define rightpressed  (GetAsyncKeyState(keycodes[0][0]))
-#define uppressed     (GetAsyncKeyState(keycodes[1][0]))
-#define leftpressed   (GetAsyncKeyState(keycodes[2][0]))
-#define downpressed   (GetAsyncKeyState(keycodes[3][0]))
-#define f1pressed     (GetAsyncKeyState(keycodes[4][0]))
-#define right2pressed (GetAsyncKeyState(keycodes[5][0]))
-#define up2pressed    (GetAsyncKeyState(keycodes[6][0]))
-#define left2pressed  (GetAsyncKeyState(keycodes[7][0]))
-#define down2pressed  (GetAsyncKeyState(keycodes[8][0]))
-#define f12pressed    (GetAsyncKeyState(keycodes[9][0]))
+#define rightpressed  (_GetAsyncKeyState(keycodes[0][0]))
+#define uppressed     (_GetAsyncKeyState(keycodes[1][0]))
+#define leftpressed   (_GetAsyncKeyState(keycodes[2][0]))
+#define downpressed   (_GetAsyncKeyState(keycodes[3][0]))
+#define f1pressed     (_GetAsyncKeyState(keycodes[4][0]))
+#define right2pressed (_GetAsyncKeyState(keycodes[5][0]))
+#define up2pressed    (_GetAsyncKeyState(keycodes[6][0]))
+#define left2pressed  (_GetAsyncKeyState(keycodes[7][0]))
+#define down2pressed  (_GetAsyncKeyState(keycodes[8][0]))
+#define f12pressed    (_GetAsyncKeyState(keycodes[9][0]))
 #else
 bool leftpressed=FALSE,rightpressed=FALSE,uppressed=FALSE,downpressed=FALSE,
      f1pressed=FALSE,left2pressed=FALSE,right2pressed=FALSE,up2pressed=FALSE,

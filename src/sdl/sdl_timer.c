@@ -25,13 +25,13 @@ Uint5 gethrt(void)
 
 	/* Speed controlling stuff */
 	if (prev == 0) {
-		prev = SDL_GetTicks();
+		prev = SDL_GetTicks ();
 	} else {
-		diff = (ftime/1000 - (SDL_GetTicks() - prev));
+		diff = (ftime/1000 - (SDL_GetTicks () - prev));
 		if (diff > 0) {
-			SDL_Delay(diff);
+      SDL_Delay (diff / DEFAULT_SPEED_FACTOR);
 		}
-		prev = SDL_GetTicks();
+		prev = SDL_GetTicks ();
 	}
 	return(0);
 }
