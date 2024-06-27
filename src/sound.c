@@ -165,7 +165,9 @@ soundlevdone(void)
   nljnoteduration=20;
   soundlevdoneflag=soundpausedflag=TRUE;
   while (soundlevdoneflag && !escape) {
+#ifndef USE_SDL
     fillbuffer();
+#endif
 #if defined _WIN32 || defined _WIN64
     do_windows_events();
     if (!wave_device_available)

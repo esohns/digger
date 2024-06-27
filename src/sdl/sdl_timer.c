@@ -29,7 +29,11 @@ Uint5 gethrt(void)
 	} else {
 		diff = (ftime/1000 - (SDL_GetTicks () - prev));
 		if (diff > 0) {
+#if defined (_DEBUG)
       SDL_Delay (diff / DEFAULT_SPEED_FACTOR);
+#else
+      SDL_Delay (diff);
+#endif
 		}
 		prev = SDL_GetTicks ();
 	}

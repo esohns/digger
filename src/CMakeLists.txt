@@ -7,7 +7,9 @@ include (Threads)
 #include (ACE)
 
 set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/../../ACEStream/src/modules/dec/scripts")
-set (LIB_FILE_SUFFIX "d")
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+ set (LIB_FILE_SUFFIX "d")
+endif (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 include (zlib)
 
 set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/../../yarp/scripts")
@@ -205,22 +207,22 @@ install (TARGETS ${PROJECT_NAME}
          RUNTIME DESTINATION bin COMPONENT bin)
 if (WIN32)
  install (FILES
-          ${LIB_ROOT}\\\\ACE_TAO\\\\ACE\\\\lib\\\\ACE.dll
+          ${LIB_ROOT}\\\\zlib\\\\build\\\\${CMAKE_BUILD_TYPE}\\\\zlib${LIB_FILE_SUFFIX}.dll
           DESTINATION bin COMPONENT bin)
  if (SDL1_USE)
   install (FILES
            ${LIB_ROOT}\\\\SDL\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL.dll
-           ${LIB_ROOT}\\\\SDL_mixer\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_mixer.dll
-           ${LIB_ROOT}\\\\SDL_ttf\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_ttf.dll
-           ${LIB_ROOT}\\\\SDL_image\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_image.dll
+#           ${LIB_ROOT}\\\\SDL_mixer\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_mixer.dll
+#           ${LIB_ROOT}\\\\SDL_ttf\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_ttf.dll
+ #          ${LIB_ROOT}\\\\SDL_image\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL_image.dll
            DESTINATION bin
            COMPONENT bin)
  elseif (SDL2_USE)
   install (FILES
            ${LIB_ROOT}\\\\SDL2\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2.dll
-           ${LIB_ROOT}\\\\SDL2_mixer\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_mixer.dll
-           ${LIB_ROOT}\\\\SDL2_ttf\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_ttf.dll
-           ${LIB_ROOT}\\\\SDL2_image\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_image.dll
+ #          ${LIB_ROOT}\\\\SDL2_mixer\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_mixer.dll
+ #          ${LIB_ROOT}\\\\SDL2_ttf\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_ttf.dll
+ #          ${LIB_ROOT}\\\\SDL2_image\\\\lib\\\\${CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE}\\\\SDL2_image.dll
            DESTINATION bin
            COMPONENT bin)
  endif ()
@@ -228,7 +230,7 @@ endif (WIN32)
 
 ################ launchers ###############
 
-set (ARGS "1024 786")
+set (ARGS "")
 if (UNIX)
  file (TO_NATIVE_PATH "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/${PROJECT_NAME}" COMMAND)
  create_target_launcher (${PROJECT_NAME}

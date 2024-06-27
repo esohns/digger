@@ -750,8 +750,12 @@ parsecmd(int argc, char** argv)
         volume=1;
         setupsound=s1setupsound;
         killsound=s1killsound;
-        fillbuffer=s1fillbuffer;
-        initint8=s1initint8;
+#ifndef (USE_SDL)
+        fillbuffer = s1fillbuffer;
+#else
+        fillbuffer = NULL;
+#endif
+        initint8 = s1initint8;
         restoreint8=s1restoreint8;
         soundoff=s1soundoff;
         setspkrt2=s1setspkrt2;
@@ -891,7 +895,7 @@ inir(void)
     volume=1;
     setupsound=s1setupsound;
     killsound=s1killsound;
-#ifndef _WINDOWS
+#ifndef USE_SDL
     fillbuffer=s1fillbuffer;
 #else
     fillbuffer=NULL;

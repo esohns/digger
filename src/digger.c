@@ -80,35 +80,41 @@ Uint5 frame;
 void
 newframe(void)
 {
-#ifndef ARM
   Uint5 t;
   if (synchvid) {
     for (;curtime<ftime;curtime+=17094) { /* 17094 = ticks in a refresh */
 #if defined _WIN32 || defined _WIN64
       do_windows_events();
-#endif
+#ifndef USE_SDL
       fillbuffer();
+#endif
       gretrace();
       checkkeyb();
     }
     curtime-=ftime;
+#ifndef USE_SDL
     fillbuffer();
+#endif
   }
   else {
     do {
 #if defined _WIN32 || defined _WIN64
       do_windows_events();
 #endif
+#ifndef USE_SDL
       fillbuffer();             /* Idle time */
-      t=gethrt();
+#endif
+      t = gethrt ();
       checkkeyb();
     } while (curtime+ftime>t && t>curtime);
     curtime=t;
   }
 #else
   for (;curtime<ftime;curtime+=15000) {
+#ifndef USE_SDL
     fillbuffer();
-    gretrace();
+#endif
+    gretrace ();
     soundint();
     checkkeyb();
   }

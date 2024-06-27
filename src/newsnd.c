@@ -73,8 +73,10 @@ void s1setupsound(void)
 #ifndef _WINDOWS
   buffer[firsts]=getsample();
 #endif
-  fillbuffer();
-  initsounddevice();
+#ifndef USE_SDL
+  fillbuffer ();
+#endif
+  initsounddevice ();
 }
 
 void s1killsound(void)

@@ -329,8 +329,10 @@ void drawbackg(Sint4 l)
 {
   Sint4 x,y;
   for (y=14;y<200;y+=4) {
+#ifndef USE_SDL
     fillbuffer();
-    for (x=0;x<320;x+=20)
+#endif
+    for (x = 0; x < 320; x += 20)
       drawmiscspr(x,y,93+l,5,4);
   }
 }
