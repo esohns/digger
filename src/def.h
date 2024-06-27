@@ -71,7 +71,9 @@ typedef unsigned long int Uint5;
 #endif
 
 #if defined _WIN32 || defined _WIN64
-#define DEFAULT_SPEED_FACTOR 20
+#if defined USE_SDL
+#define DEFAULT_SPEED_FACTOR 20 // _DEBUG only
+#endif
 #define DEFAULT_BUFFER 2048
 #define DEF_SND_DEV 1
 #else
